@@ -27,12 +27,13 @@ public struct _RECADotFile: Codable, Hashable, Sendable {
         }
     }
     
-    @MainActor(unsafe)
     public static func key(
         for provider: ModelIdentifier.Provider
     ) throws -> String? {
-        assert(ProcessInfo.processInfo._isRunningWithinXCTest)
-        
-        return try dotfileForCurrentUser?.key(for: provider)
+        try MainActor.unsafeAssumeIsolated {
+            assert(ProcessInfo.processInfo._isRunningWithinXCTest)
+            
+            return try dotfileForCurrentUser?.key(for: provider)
+        }
     }
 }
