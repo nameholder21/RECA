@@ -25,17 +25,17 @@ RECA powers recall-aware agents. Instead of generating in isolation, they genera
 
 RECA requires Python 3.10+ and uses Poetry for dependency management.
 
-\```
-git clone https://github.com/reca.git  
+```
+# Clone the repo
 cd reca  
 poetry install  
-\```
+```
 
 Or install it directly into your Poetry project:
 
-\```
+```
 poetry add reca  
-\```
+```
 
 ---
 
@@ -49,7 +49,7 @@ The basic unit in RECA is a `MemoryObject`. Each object contains:
 - `tags`: optional labels  
 - `embedding`: optional vector for semantic search
 
-\```
+```
 from reca.memory.schema import MemoryObject  
 from datetime import datetime  
 
@@ -59,13 +59,13 @@ obj = MemoryObject(
     source="notes.txt",  
     tags=["nutrition"]  
 )  
-\```
+```
 
 ---
 
 ## 📦 Using Memory
 
-\```
+```
 from reca.memory.core import Memory  
 mem = Memory()  
 
@@ -73,7 +73,7 @@ mem.insert("Elephants have excellent memory.")
 results = mem.search("Which animals have strong memory?")  
 
 print(results[0].text)  
-\```
+```
 
 ---
 
@@ -81,7 +81,7 @@ print(results[0].text)
 
 Mix local memory with external retrievers:
 
-\```
+```
 from reca.retrievers.hybrid import HybridRetriever  
 from reca.retrievers.local import LocalRetriever  
 from reca.retrievers.wikipedia import WikipediaRetriever  
@@ -92,7 +92,7 @@ hybrid = HybridRetriever([
 ])  
 
 answers = hybrid.search("What is quantum entanglement?")  
-\```
+```
 
 ---
 
@@ -100,13 +100,13 @@ answers = hybrid.search("What is quantum entanglement?")
 
 Split PDFs or markdown into memory-ready chunks:
 
-\```
+```
 from reca.parsers.markdown import parse_markdown  
 chunks = parse_markdown("docs/overview.md")  
 
 for c in chunks:  
     mem.insert(c)  
-\```
+```
 
 Supported formats include `.md`, `.txt`, `.pdf`, and `.json`.
 
@@ -116,20 +116,20 @@ Supported formats include `.md`, `.txt`, `.pdf`, and `.json`.
 
 RECA supports pluggable embedding backends. Use OpenAI or local transformers:
 
-\```
+```
 from reca.models.embedding import OpenAIEmbedder  
 mem = Memory(embedder=OpenAIEmbedder())  
-\```
+```
 
 You can also add your own model:
 
-\```
+```
 from reca.models.embedding import CustomEmbedder  
 
 class MyEmbedder(CustomEmbedder):  
     def embed(self, text):  
         return my_custom_embedding(text)  
-\```
+```
 
 ---
 
@@ -137,12 +137,12 @@ class MyEmbedder(CustomEmbedder):
 
 Search web content on-the-fly:
 
-\```
+```
 from reca.retrievers.web import WebRetriever  
 
 web = WebRetriever()  
 results = web.search("Latest news on GPT-5")  
-\```
+```
 
 RECA includes pluggable retrievers for:
 
@@ -158,9 +158,9 @@ RECA includes pluggable retrievers for:
 
 Run tests locally using Poetry:
 
-\```
+```
 poetry run pytest  
-\```
+```
 
 ---
 
