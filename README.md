@@ -43,7 +43,8 @@ poetry add reca
 
 ## 🧱 MemoryObjects
 
-![post2](https://github.com/user-attachments/assets/249b2d90-d669-44cf-a625-458d396edc09)
+<img src="https://github.com/user-attachments/assets/bc5bfb31-379f-4e4a-9fa7-b4ec34550479" width="800"/>
+
 
 The basic unit in RECA is a `MemoryObject`. Each object contains:
 
