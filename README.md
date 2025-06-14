@@ -1,4 +1,6 @@
-# RECA: Retrieval Engine for Cognitive Agents
+![githubbanner](https://github.com/user-attachments/assets/ec29fb84-2a87-43f1-acff-c5d907f77512)
+
+# Retrieval Engine for Cognitive Agents
 
 RECA is a flexible, lightweight memory and retrieval system designed to empower AI agents with real-time recall, long-term memory, and contextual search. Built for developers building autonomous tools, chat interfaces, personal assistants, or multi-agent systems - RECA enables your agents to remember what matters and find what they need, when they need it.
 
@@ -40,6 +42,8 @@ poetry add reca
 ---
 
 ## 🧱 MemoryObjects
+
+![post2](https://github.com/user-attachments/assets/249b2d90-d669-44cf-a625-458d396edc09)
 
 The basic unit in RECA is a `MemoryObject`. Each object contains:
 
